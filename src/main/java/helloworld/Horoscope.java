@@ -32,9 +32,8 @@ public class Horoscope {
 
         try {
             JSONObject xmlJSONObj = XML.toJSONObject(val);
-            jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-            //System.out.println(jsonPrettyPrintString);
-            System.out.println(xmlJSONObj.getJSONObject("rss").getJSONObject("channel");
+            jsonPrettyPrintString = xmlJSONObj.getJSONObject("rss").getJSONObject("channel").getJSONObject("item").getString("description");
+            System.out.println(jsonPrettyPrintString);
         } catch (JSONException je) {
             System.out.println(je.toString());
         }
