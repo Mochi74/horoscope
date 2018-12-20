@@ -12,7 +12,7 @@ public class AppTest {
     GatewayResponse result = (GatewayResponse) app.handleRequest(null, null);
     assertEquals(result.getStatusCode(), 200);
     assertEquals(result.getHeaders().get("Content-Type"), "application/json");
-    String content = result.getBody();
+    String content = result.getSigne();
     assertNotNull(content);
     assertTrue(content.contains("\"message\""));
     assertTrue(content.contains("\"hello world\""));
