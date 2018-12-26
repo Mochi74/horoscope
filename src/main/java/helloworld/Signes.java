@@ -2,14 +2,15 @@ package helloworld;
 
 
 public class Signes {
-    private String signe;
+    private String horoscope;
+
     private String description;
 
-    public String getSigne() {
-        return signe;
+    public String getHoroscope() {
+        return horoscope;
     }
-    public void setSigne(String signe) {
-        this.signe = signe;
+    public void setHoroscope(String signe) {
+        this.horoscope = signe;
     }
 
 }

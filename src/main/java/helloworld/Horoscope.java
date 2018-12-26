@@ -20,7 +20,7 @@ public class Horoscope {
         String val;
         String jsonPrettyPrintString = "";
 
-        URL url = new URL("https://www.asiaflash.com/horoscope/rss_horojour_" + nom + ".xml");
+        URL url = new URL("https://www.asiaflash.com/horoscope/rss_horojour_" + nom.toLowerCase() + ".xml");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         /* urlConnection.setRequestProperty("Accept-Encoding", "identity"); */
         try {
