@@ -3,6 +3,7 @@ package horoscope;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
+import org.json.*;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -13,7 +14,7 @@ import java.text.Normalizer;
 public class Horoscope {
     public static int PRETTY_PRINT_INDENT_FACTOR = 4;
 
-    public String call(String nom) throws IOException {
+    public Out get(String nom) throws IOException {
         String aString = "";
         String val;
         /* normalize sign name to suppress accent */
@@ -38,14 +39,15 @@ public class Horoscope {
         try {
             JSONObject xmlJSONObj = XML.toJSONObject(val);
             aString = xmlJSONObj.getJSONObject("rss").getJSONObject("channel").getJSONObject("item").getString("description");
-            System.out.println(aString);
+            // System.out.println(aString);
         } catch (JSONException je) {
             System.out.println(je.toString());
         }
-        // returm description string */
-        return aString;
+        // returm description java object */
+        return new Out(aString);
     }
 
+    /* read all content of rss in Xml */
     private String readStream(InputStream is) throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader r = new BufferedReader(new InputStreamReader(is), 1000);
